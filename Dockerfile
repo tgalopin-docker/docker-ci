@@ -33,9 +33,9 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositor
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
     && composer global require phpunit/phpunit \
     && ln -s /root/.composer/vendor/bin/phpunit /usr/local/bin/phpunit \
-    && npm install -g forever
+    && npm install -g forever \
+    && mkdir /app
 
 COPY php.ini /etc/php7/conf.d/50-setting.ini
 
-VOLUME /app
 WORKDIR /app

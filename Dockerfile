@@ -1,5 +1,10 @@
 FROM alpine:latest
 
+ENV LANG="en_US.UTF-8" \
+    LC_ALL="en_US.UTF-8" \
+    LANGUAGE="en_US.UTF-8" \
+    TERM="xterm"
+
 RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk --update add \
         git \
@@ -10,7 +15,6 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositor
         php7-curl \
         php7-ctype \
         php7-dom \
-        php7-fpm \
         php7-gd \
         php7-iconv \
         php7-intl \
@@ -23,6 +27,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositor
         php7-phar \
         php7-session \
         php7-xml \
+        php7-zip \
     && rm -rf /var/cache/apk/* \
     && ln -s /usr/bin/php7 /usr/bin/php \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \

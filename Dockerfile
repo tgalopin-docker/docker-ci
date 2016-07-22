@@ -32,6 +32,8 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositor
     && ln -s /usr/bin/php7 /usr/bin/php \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
     && composer global require phpunit/phpunit \
+    && composer global require monolog/monolog \
+    && composer global require sentry/sentry \
     && ln -s /root/.composer/vendor/bin/phpunit /usr/local/bin/phpunit \
     && npm install -g forever \
     && mkdir /app

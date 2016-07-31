@@ -22,6 +22,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositor
         php7-mbstring \
         php7-mcrypt \
         php7-openssl \
+        php7-pcntl \
         php7-pdo \
         php7-pdo_pgsql \
         php7-phar \

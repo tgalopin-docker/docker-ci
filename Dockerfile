@@ -37,10 +37,11 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories 
     && ln -s /usr/bin/php7 /usr/bin/php \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
     && composer global require phpunit/phpunit \
-    && composer global require monolog/monolog \
-    && composer global require sentry/sentry \
+    && composer global require symfony/symfony \
+    && composer global require symfony/monolog-bundle \
+    && composer global require doctrine/doctrine-bundle \
+    && composer global require sentry/sentry-symfony \
     && ln -s /root/.composer/vendor/bin/phpunit /usr/local/bin/phpunit \
-    && npm install -g forever \
     && mkdir /app
 
 COPY php.ini /etc/php7/conf.d/50-setting.ini
